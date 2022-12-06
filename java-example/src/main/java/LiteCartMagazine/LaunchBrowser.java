@@ -23,14 +23,16 @@ public class LaunchBrowser {
     @Before
     public void setup(){
 //        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\chromedriver.exe");
-//        System.setProperty("webdriver.gecko.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\geckodriver.exe");
-          System.setProperty("webdriver.gecko.driver", "C:\\Users\\vladislav.nazar\\AppData\\Local\\Firefox Nightly\\firefox.exe");
+        System.setProperty("webdriver.gecko.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\geckodriver.exe");
 //        System.setProperty("webdriver.ie.driver","driver path\\IEDriverServer.exe");
+        FirefoxOptions options = new FirefoxOptions();
+        options.setBinary(new FirefoxBinary(new File("C:\\Users\\vladislav.nazar\\AppData\\\\Local\\Firefox Nightly\\firefox.exe")));
+
 
 //        driver = new ChromeDriver();
 //        driver = new InternetExplorerDriver();
-
         driver = new FirefoxDriver();
+        driver = new FirefoxDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
     }

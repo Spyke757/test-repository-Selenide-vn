@@ -41,7 +41,7 @@ public class CheckCountriesAndGeoZone { //тест на проверку сортировок стран и ге
         ArrayList<String> sortedCountries = new ArrayList<>(countries);//создали строковый списочный массив со странами
         Collections.sort(sortedCountries);//отсортировали страны
         for (int i = 0; i < countries.size(); i++) {
-            assertEquals(countries.get(i), sortedCountries.get(i));//Проверили сравнение,что отсортированы
+            assertEquals(countries.get(i), sortedCountries.get(i));//Проверили сравнение, что отсортированы
             if (countries.equals(sortedCountries)) {
                 System.out.println("Отсортированные страны: " + sortedCountries);
             } else {

@@ -4,19 +4,14 @@ package LiteCartMagazine;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import org.omg.CORBA.Environment;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginLiteCart {
+public class LoginAdmin {
 
     private WebDriver driver;
 
@@ -44,4 +39,3 @@ public class LoginLiteCart {
         driver = null;
     }
 }
-

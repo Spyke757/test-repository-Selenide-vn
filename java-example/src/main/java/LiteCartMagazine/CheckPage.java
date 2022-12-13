@@ -163,7 +163,7 @@ public class CheckPage {
         }
     }
     @Test
-    public void checkSizePromoLargerRegular() {
+    public void checkSizePromoLargerRegular() { // акционная цена крупнее, чем обычная
         driver.get("http://localhost/litecart/en/");
         driver.manage().window().maximize();
         WebElement duck = driver.findElement(By.xpath("//div[@id='box-campaigns']//ul[@class='listing-wrapper products']/li[@class='product column shadow hover-light']//img"));

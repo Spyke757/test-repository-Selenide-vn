@@ -37,20 +37,17 @@ public class CreateNewUser { //создание нового пользователя
         driver.findElement(By.xpath("//input[@name='city']")).sendKeys("Brooklyn");//город
         driver.findElement(By.xpath("//span[@class='select2-selection__arrow']")).click();//страна dropdown
         driver.findElement(By.xpath("//input[@class='select2-search__field']")).sendKeys("United States" + Keys.ENTER);//выбираем us+энтер
-
         String email = new Date().getTime() + "@email.com";//рандомная почта
         driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);//вводим почту
         driver.findElement(By.xpath("//input[@name='phone']")).sendKeys("+15189007856");//номер тел
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys("12345678");//пароль
         driver.findElement(By.xpath("//input[@name='confirmed_password']")).sendKeys("12345678");//дубль пароля
         driver.findElement(By.xpath("//button[@name='create_account']")).click();//создали учетку
-
         Thread.sleep(3000);//ожидалка появления
         Select zone = new Select(driver.findElement(By.xpath("//select[@name='zone_code']")));
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
         javascriptExecutor.executeScript("arguments[0].selectedIndex=11", zone);
         javascriptExecutor.executeScript("arguments[0].selectedIndex=11;arguments[0].dispatchEvent(new Event('change'));", zone);
-
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys("12345678");
         driver.findElement(By.xpath("//input[@name='confirmed_password']")).sendKeys("12345678");
         driver.findElement(By.xpath("//button[@name='create_account']")).click();
@@ -58,11 +55,9 @@ public class CreateNewUser { //создание нового пользователя
 
         String logOutXpath = "//a[text()=\"Logout\"]";//вышли
         driver.findElements(By.xpath(logOutXpath)).get(0).click();
-
         driver.findElement(By.xpath("//input[@name='email']")).sendKeys(email);//логин
         driver.findElement(By.xpath("//input[@name='password']")).sendKeys("12345678");
         driver.findElement(By.xpath("//button[@name='login']")).click();
-
         driver.findElements(By.xpath(logOutXpath)).get(0).click();
     }
 

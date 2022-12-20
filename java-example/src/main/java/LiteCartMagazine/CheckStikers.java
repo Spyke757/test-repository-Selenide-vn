@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.By.xpath;
 
 
-public class CheckStikers {
+public class CheckStikers { //Task 7
 
     private WebDriver driver;
 

@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-public class CheckCountriesAndGeoZone { //тест на проверку сортировок стран и геозон
+public class CheckCountriesAndGeoZone { //Task 8
     private WebDriver driver;
 
     @Before

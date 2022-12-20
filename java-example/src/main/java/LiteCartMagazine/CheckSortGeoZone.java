@@ -13,7 +13,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class CheckSortGeoZone {
+public class CheckSortGeoZone { //Task 9
     private WebDriver driver;
 
     @Before

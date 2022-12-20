@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
 
-public class CheckPage {
+public class CheckPage { //Task 10
     private WebDriver driver;
 
     @Before()

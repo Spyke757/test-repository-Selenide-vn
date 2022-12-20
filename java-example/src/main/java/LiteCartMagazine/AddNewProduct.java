@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class AddNewProduct {//test adding product
+public class AddNewProduct {//Task 12
     private WebDriver driver;
 
     @Before

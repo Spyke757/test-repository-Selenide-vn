@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class CreateNewUser { //создание нового пользователя
+public class CreateNewUser { //Task 11
     private WebDriver driver;
 
     @Before

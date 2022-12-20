@@ -16,7 +16,8 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class LaunchBrowser {
+public class LaunchBrowser {// Test 2
+    //Test 3
 
     private static WebDriver driver;
 

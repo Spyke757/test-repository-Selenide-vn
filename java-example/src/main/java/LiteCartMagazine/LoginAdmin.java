@@ -11,7 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.util.concurrent.TimeUnit;
 
-public class LoginAdmin {
+public class LoginAdmin { //Task 1
 
     private WebDriver driver;
 

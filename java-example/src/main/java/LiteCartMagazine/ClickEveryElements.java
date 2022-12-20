@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertTrue;
 import static org.openqa.selenium.By.xpath;
 
-public class ClickEveryElements {
+public class ClickEveryElements { //Task 6
     private WebDriver driver;
 
     @Before

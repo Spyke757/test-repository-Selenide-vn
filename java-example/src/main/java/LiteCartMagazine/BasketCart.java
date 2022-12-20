@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.List;
 
-public class BasketCart { //scenario work with basket
+public class BasketCart { //Task 13
 
     private WebDriver driver;
 

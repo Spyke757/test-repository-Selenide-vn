@@ -27,13 +27,6 @@ public class CheckOpenesNewWindows { //Task 14
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
-    public void Thread (long time){
-        try {
-            sleep(time);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
     @Test
     public void checkWindow() {
         driver.get("http://localhost/litecart/admin/");//admin

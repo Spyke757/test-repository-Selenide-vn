@@ -45,7 +45,7 @@ public class BasketCart { //Task 13
             //delete
            driver.findElement(By.xpath("//button[@name='remove_cart_item']")).click();
             WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
-            wait.until((ExpectedCondition<Boolean>) driver12 -> getQtySum(driver12) < qtyBeforeRemove);
+            wait.until((ExpectedCondition<Boolean>) driver10 -> getQtySum(driver10) < qtyBeforeRemove);
         }
     }
 //checkout

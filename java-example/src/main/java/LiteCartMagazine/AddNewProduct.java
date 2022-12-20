@@ -6,13 +6,12 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class ProductAdding {//test adding product
+public class AddNewProduct {//test adding product
     private WebDriver driver;
 
     @Before

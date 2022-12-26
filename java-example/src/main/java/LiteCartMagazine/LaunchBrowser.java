@@ -14,6 +14,7 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 
 import java.io.File;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class LaunchBrowser {// Test 2
@@ -23,18 +24,18 @@ public class LaunchBrowser {// Test 2
 
     @Before
     public void setup(){
-//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\chromedriver.exe");
-        System.setProperty("webdriver.gecko.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\tools\\drivers\\chromedriver.exe");
+//        System.setProperty("webdriver.gecko.driver", "C:\\tools\\drivers\\geckodriver.exe");
 //        System.setProperty("webdriver.ie.driver","driver path\\IEDriverServer.exe");
         FirefoxOptions options = new FirefoxOptions();
-        options.setBinary(new FirefoxBinary(new File("C:\\Users\\vladislav.nazar\\AppData\\\\Local\\Firefox Nightly\\firefox.exe")));
+        options.setBinary(new FirefoxBinary(new File("C:\\Users\\vladislav.nazar\\AppData\\Local\\Firefox Nightly\\firefox.exe")));
 
 
 //        driver = new ChromeDriver();
 //        driver = new InternetExplorerDriver();
         driver = new FirefoxDriver();
         driver = new FirefoxDriver(options);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
 

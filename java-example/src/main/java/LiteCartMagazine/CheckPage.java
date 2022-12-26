@@ -16,6 +16,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import java.io.File;
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.*;
@@ -25,14 +26,14 @@ public class CheckPage { //Task 10
 
     @Before()
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\chromedriver.exe");
-//        System.setProperty("webdriver.gecko.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\tools\\drivers\\chromedriver.exe");
+//        System.setProperty("webdriver.gecko.driver", "C:\\tools\drivers\\geckodriver.exe");
 //        System.setProperty("webdriver.ie.driver","driver path\\IEDriverServer.exe");
 
         driver = new ChromeDriver();
 //       driver = new InternetExplorerDriver();
 //        driver = new FirefoxDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     @Test
     public void checkTitlesMainPage (){// Проверка совпадает текст названия товара на странице и внутри

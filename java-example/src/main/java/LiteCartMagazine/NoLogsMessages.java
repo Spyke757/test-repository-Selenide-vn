@@ -8,12 +8,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.logging.LogEntries;
+import org.openqa.selenium.logging.LogEntry;
 import org.openqa.selenium.logging.LogType;
 import org.openqa.selenium.logging.LoggingPreferences;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -22,15 +25,15 @@ public class NoLogsMessages { //Task 17
     private WebDriver driver;
     @Before
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\tools\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         ChromeOptions options = new ChromeOptions();
         DesiredCapabilities caps = new DesiredCapabilities(options);
         LoggingPreferences logPrefs = new LoggingPreferences();
-        logPrefs.enable(LogType.BROWSER, Level.ALL);
-        caps.setCapability(ChromeOptions.CAPABILITY, logPrefs);
-        options.setCapability(ChromeOptions.CAPABILITY, caps);
+        logPrefs.enable(LogType.PERFORMANCE, Level.ALL);
+        caps.setCapability(ChromeOptions.LOGGING_PREFS, logPrefs);
+        options.setCapability(ChromeOptions.LOGGING_PREFS, caps);
 
     }
     @Test
@@ -46,7 +49,15 @@ public class NoLogsMessages { //Task 17
             product.get(i).click();
             driver.manage().logs().get("browser")
                     .getAll().forEach(logEntry -> System.out.println("BROWSER: " + logEntry));
+
             driver.navigate().back();
+        }
+    }
+    public void analyzeLog() {
+        LogEntries logEntries = driver.manage().logs().get(LogType.BROWSER);
+        for (LogEntry entry : logEntries) {
+            System.out.println(new Date(entry.getTimestamp()) + " " + entry.getLevel() + " " + entry.getMessage());
+            //do something useful with the data
         }
     }
         @After

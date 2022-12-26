@@ -9,16 +9,18 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.File;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
+import java.time.LocalDateTime;
 
-public class AddNewProduct {//Task 12
+
+public class AddNewProduct {//Task 12 upd
     private WebDriver driver;
 
     @Before
     public void setup() {
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\vladislav.nazar\\Documents\\GitHub\\test-repository-Selenide-vn\\drivers\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\tools\\drivers\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
     }
     @Test
@@ -32,10 +34,12 @@ public class AddNewProduct {//Task 12
         driver.findElement(By.linkText("Add New Product")).click();
         //General
         driver.findElement(By.xpath("//input[@type='radio' and @value=1]")).click();
-        driver.findElement(By.xpath("//input[@name='name[en]']")).sendKeys("New duck");
-        driver.findElement(By.xpath("//input[@name='code']")).sendKeys("123");
-        driver.findElement(By.xpath("//*[@id='tab-general']/table/tbody/tr[4]/td/div/table/tbody/tr[2]/td[1]/input")).click();
-        driver.findElement(By.xpath("//*[@id='tab-general']/table/tbody/tr[5]/td/select/option[2]")).click();
+        String rootName = generateName();
+        driver.findElement(By.xpath("//input[@name='name[en]']")).sendKeys(rootName);
+        driver.findElement(By.xpath("//input[@name='code']")).sendKeys("rd0009");
+        driver.findElement(By.xpath("//input[@type='checkbox' and @value=1]")).click();
+        driver.findElement(By.xpath("//select[@name='default_category_id']")).click();
+        driver.findElement(By.name("default_category_id")).click();
         driver.findElement(By.xpath("//input[@value='1-3']")).click();
         driver.findElement(By.xpath("//input[@name = 'quantity']")).clear();
         driver.findElement(By.xpath("//input[@name = 'quantity']")).sendKeys("50");
@@ -67,7 +71,7 @@ public class AddNewProduct {//Task 12
         driver.findElement(By.xpath("//input[@name = 'prices[USD]']")).sendKeys("25");
         driver.findElement(By.xpath("//input[@name = 'prices[EUR]']")).sendKeys("30");
         driver.findElement(By.xpath("//button[@name='save']")).click();
-        driver.findElement(By.linkText("New duck")).click();
+        driver.findElement(By.linkText(rootName)).click();
         Thread.sleep (1000);
 
         //check
@@ -76,6 +80,12 @@ public class AddNewProduct {//Task 12
         js.executeScript("window.scrollBy(0,1000)");
         Thread.sleep (1000);
     }
+    public String generateName() {
+        String time = LocalDateTime.now().toString();
+        time = time.replace(":", "").replace(".", "").replace("-", "");
+        return time;
+    }
+
     @After
     public void close() {
         driver.quit();

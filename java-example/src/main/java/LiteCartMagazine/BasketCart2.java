@@ -10,14 +10,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static java.lang.Thread.sleep;
 
-public class BasketCart { //Task 13 upd
+public class BasketCart2 { //Task 13 upd
 
     private WebDriver driver;
-    private WebDriverWait wait;
 
 
     @Before
@@ -35,19 +35,17 @@ public class BasketCart { //Task 13 upd
             driver.findElement(By.xpath("//div[@id='box-most-popular']//li/a[1]")).click();
             selectSize(driver);
             driver.findElement(By.xpath("//button[@name='add_cart_product']")).click();
-//            wait.until((ExpectedCondition<Boolean>) driver10 -> getQuantityFromCart(driver10) > qtyBeforeAdd);
-            sleep(1000);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            wait.until((ExpectedCondition<Boolean>) driver1 -> getQuantityFromCart(driver1) > qtyBeforeAdd);
             driver.findElement(By.xpath("//li[@class='general-0']")).click();
         }
         driver.findElement(By.linkText("Checkout »")).click();
         List<WebElement> qtyList = driver.findElements(By.xpath("//td[@class='item']/../td[1]"));
         for (int i = 0; i < qtyList.size(); i++) {
             int qtyBeforeRemove = getQtySum(driver);
-
-            //delete
             driver.findElement(By.xpath("//button[@name='remove_cart_item']")).click();
-//            wait.until((ExpectedCondition<Boolean>) driver12 -> getQtySum(driver12) < qtyBeforeRemove);
-            sleep(1500);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+            wait.until((ExpectedCondition<Boolean>) driver1 -> getQtySum(driver1) < qtyBeforeRemove);
         }
     }
 
@@ -66,11 +64,7 @@ public class BasketCart { //Task 13 upd
         return qantity;
     }
 
-    ////    wait upd item
-//    private int getQuantity(WebDriver driver) {
-//        WebElement quantity = driver.findElement(By.xpath("//span[@class='quantity']"));
-//        return Integer.parseInt(quantity.getText());
-//    }
+    //    wait upd item
     private int getQuantityFromCart(WebDriver driver) {
         String qtyLocator = "//span[@class='quantity']";
         WebElement quantity = driver.findElement(By.xpath(qtyLocator));

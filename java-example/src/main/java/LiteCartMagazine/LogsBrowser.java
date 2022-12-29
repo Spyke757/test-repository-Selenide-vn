@@ -28,6 +28,7 @@ public class LogsBrowser { //Task 17 upd
         driver = new ChromeDriver(options);
         System.setProperty("webdriver.chrome.driver", "C:\\tools\\drivers\\chromedriver.exe");
         driver = new ChromeDriver(options);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     @Test
     public void browserLogs() {

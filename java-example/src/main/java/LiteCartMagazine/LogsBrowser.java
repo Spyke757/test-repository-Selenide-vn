@@ -26,7 +26,6 @@ public class LogsBrowser { //Task 17 upd
         ChromeOptions options = new ChromeOptions();
         options.setCapability(CapabilityType.LOGGING_PREFS, prefs);
         driver = new ChromeDriver(options);
-        System.setProperty("webdriver.chrome.driver", "C:\\tools\\drivers\\chromedriver.exe");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
     @Test

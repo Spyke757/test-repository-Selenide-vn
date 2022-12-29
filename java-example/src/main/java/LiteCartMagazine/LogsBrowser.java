@@ -16,19 +16,18 @@ import java.util.List;
 import java.util.logging.Level;
 
 
-public class LogsBrowser { //Task 17
+public class LogsBrowser { //Task 17 upd
     private WebDriver driver;
     @Before
     public void setup() {
         System.setProperty("webdriver.chrome.driver", "C:\\tools\\drivers\\chromedriver.exe");
-        driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         LoggingPreferences prefs = new LoggingPreferences();
         prefs.enable("browser", Level.ALL);
         ChromeOptions options = new ChromeOptions();
         options.setCapability(CapabilityType.LOGGING_PREFS, prefs);
         driver = new ChromeDriver(options);
-
+        System.setProperty("webdriver.chrome.driver", "C:\\tools\\drivers\\chromedriver.exe");
+        driver = new ChromeDriver(options);
     }
     @Test
     public void browserLogs() {
@@ -46,6 +45,7 @@ public class LogsBrowser { //Task 17
             driver.manage().logs().get("browser").forEach(l-> System.out.println(l));
             driver.manage().logs().get("browser")
                     .getAll().forEach(logEntry -> System.out.println("BROWSER: " + logEntry));
+
             driver.navigate().back();
         }
     }
